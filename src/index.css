@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Ryker Black';
+    src: local('Ryker Black'), local('Ryker-Black');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Camingo Code';
+    src: local('Camingo Code'), local('CamingoCode-Regular');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Geomanist';
+    src: local('Geomanist'), local('Geomanist-Regular');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html,
+  body {
+    @apply m-0 p-0 w-full h-full bg-white text-gray-900 font-camingo overflow-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-ryker uppercase tracking-widest;
+  }
+
+  p,
+  li,
+  a {
+    @apply font-camingo;
+  }
+}
