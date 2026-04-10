@@ -8,7 +8,7 @@ const CAROUSEL_ITEMS = [
     { title: "Objetivos", text: "Aprender, Construir, Compartir" }
 ];
 
-export default function IdleView({ onProceed, onGoToQuiz, onGoToRedes }) {
+export default function IdleView({ onProceed, onGoToQuiz, onGoToTrivia, onGoToRedes }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const tapCountRef = useRef(0);
     const tapTimerRef = useRef(null);
@@ -95,24 +95,18 @@ export default function IdleView({ onProceed, onGoToQuiz, onGoToRedes }) {
                         </AnimatePresence>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 w-full sm:w-auto px-4 md:px-0">
-                        <button
-                            onClick={onProceed}
-                            className="w-full sm:w-auto px-6 py-4 rounded-full font-geomanist font-bold text-lg uppercase tracking-widest bg-azul-gatuno text-white shadow-[0_0_15px_rgba(65,66,245,0.6)] hover:shadow-[0_0_25px_rgba(195,251,52,0.8)] hover:bg-verde-limon hover:text-gray-900 transition-all duration-300 flex items-center justify-center whitespace-nowrap"
-                        >
-                            Empezar
-                        </button>
+                    <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8 w-full sm:w-auto px-4 md:px-0">
                         <button
                             onClick={onGoToQuiz}
-                            className="w-full sm:w-auto px-6 py-4 rounded-full font-geomanist font-bold text-lg uppercase tracking-widest bg-white text-azul-gatuno ring-4 ring-inset ring-azul-gatuno shadow-md hover:bg-azul-gatuno hover:text-white transition-all duration-300 flex items-center justify-center whitespace-nowrap"
+                            className="w-full sm:w-auto px-8 py-4 rounded-full font-geomanist font-bold text-xl uppercase tracking-widest bg-white text-azul-gatuno ring-4 ring-inset ring-azul-gatuno shadow-md hover:bg-azul-gatuno hover:text-white transition-all duration-300 flex items-center justify-center whitespace-nowrap"
                         >
-                            Ir al Quiz
+                            Quiz
                         </button>
                         <button
-                            onClick={onGoToRedes}
-                            className="w-full sm:w-auto px-6 py-4 rounded-full font-geomanist font-bold text-lg uppercase tracking-widest bg-azul-gatuno text-white shadow-[0_0_15px_rgba(65,66,245,0.6)] hover:shadow-[0_0_25px_rgba(195,251,52,0.8)] hover:bg-verde-limon hover:text-gray-900 transition-all duration-300 flex items-center justify-center whitespace-nowrap"
+                            onClick={onGoToTrivia}
+                            className="w-full sm:w-auto px-8 py-4 rounded-full font-geomanist font-bold text-xl uppercase tracking-widest bg-azul-gatuno text-white shadow-[0_0_15px_rgba(65,66,245,0.6)] hover:shadow-[0_0_25px_rgba(195,251,52,0.8)] hover:bg-verde-limon hover:text-gray-900 transition-all duration-300 flex items-center justify-center whitespace-nowrap"
                         >
-                            Redes
+                            Trivia Survival
                         </button>
                     </div>
                 </div>

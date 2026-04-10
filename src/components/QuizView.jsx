@@ -4,79 +4,79 @@ import confetti from 'canvas-confetti';
 
 const QUESTION_BANK = [
     {
-        question: "¿Qué etiqueta se usa para un párrafo?",
-        options: ["<h1>", "<p>", "<a>", "<div>"],
-        answer: 1,
-    },
-    {
-        question: "¿Cuál es la etiqueta principal para un título muy grande?",
-        options: ["<title>", "<header>", "<h1>", "<bold>"],
-        answer: 2,
-    },
-    {
-        question: "¿Cómo se hace un enlace a otra página?",
-        options: ["<link>", "<a>", "<nav>", "<button>"],
-        answer: 1,
-    },
-    {
-        question: "Encuentra el error: <button>Haz click</buton>",
-        options: ["El texto interior", "Falta el id", "Etiqueta mal cerrada", "No tiene href"],
-        answer: 2,
-    },
-    {
-        question: "¿Qué propiedad de CSS cambia el color del texto?",
-        options: ["background-color", "color", "text-style", "font-color"],
-        answer: 1,
-    },
-    {
-        question: "¿Qué etiqueta crea una lista con viñetas (no ordenada)?",
-        options: ["<ol>", "<ul>", "<li>", "<list>"],
-        answer: 1,
-    },
-    {
-        question: "¿Cuál es la forma correcta de insertar una imagen?",
-        options: ["<img href='img.jpg'>", "<image src='img.jpg'>", "<img src='img.jpg'>", "<img>img.jpg</img>"],
-        answer: 2,
-    },
-    {
-        question: "¿Qué significa el acrónimo CSS?",
-        options: ["Cascading Style Sheets", "Creative Style System", "Computer Style Sheets", "Colorive Style System"],
+        question: "¿Qué etiqueta se usa para la estructura básica inicial de un documento HTML?",
+        options: ["<html>", "<head>", "<body>", "<doctype>"],
         answer: 0,
     },
     {
-        question: "¿Cómo seleccionas un elemento por su ID en CSS?",
-        options: [".mi-id", "*mi-id", "mi-id", "#mi-id"],
-        answer: 3,
-    },
-    {
-        question: "¿Cómo agregas un comentario en HTML5?",
-        options: ["// Comentario", "/* Comentario */", "<!-- Comentario -->", "<!Comentario>"],
+        question: "¿Qué propiedad de CSS se enseña en la introducción para cambiar el color de fondo?",
+        options: ["color", "bg-color", "background-color", "back-color"],
         answer: 2,
     },
     {
-        question: "¿Qué propiedad de CSS cambia el color de fondo?",
-        options: ["color", "back-color", "background-color", "bg-color"],
+        question: "¿Qué etiqueta se utiliza para crear hipervínculos?",
+        options: ["<link>", "<a>", "<href>", "<url>"],
+        answer: 1,
+    },
+    {
+        question: "¿Qué atributo es esencial en la etiqueta <img> para mostrar una imagen?",
+        options: ["href", "link", "src", "alt"],
         answer: 2,
     },
     {
-        question: "¿Qué atributo se usa para agregar estilos 'en línea'? (inline styles)",
-        options: ["class", "css", "styles", "style"],
-        answer: 3,
+        question: "En el Box Model, ¿qué propiedad define el espacio interior entre el contenido y el borde?",
+        options: ["margin", "padding", "border", "spacing"],
+        answer: 1,
     },
     {
-        question: "¿Cuál de estas NO es una etiqueta de formulario?",
-        options: ["<input>", "<select>", "<form-input>", "<textarea>"],
+        question: "En el Box Model, ¿qué propiedad define el espacio exterior, separando un elemento de otros?",
+        options: ["padding", "margin", "outline", "border"],
+        answer: 1,
+    },
+    {
+        question: "¿Cuál de estas es una unidad relativa en CSS vista en Tipografía Web?",
+        options: ["px", "cm", "rem", "pt"],
         answer: 2,
     },
     {
-        question: "¿Qué etiqueta se usa para resaltar texto en 'negrita' de forma semántica?",
-        options: ["<strong>", "<bold>", "<b>", "<heavy>"],
+        question: "¿Qué herramienta integrada en el navegador nos permite inspeccionar y modificar CSS en vivo?",
+        options: ["VS Code", "Terminal", "DevTools", "Notepad"],
+        answer: 2,
+    },
+    {
+        question: "¿Qué propiedad de CSS convierte a un elemento en un Contenedor Flex?",
+        options: ["display: flex;", "flexbox: true;", "display: block;", "position: flex;"],
         answer: 0,
     },
     {
-        question: "¿A qué lenguaje se le conoce como 'El cerebro' o la interactividad de la web?",
-        options: ["HTML", "Python", "JavaScript", "CSS"],
+        question: "¿Qué propiedad alinea los Ítems Flex a lo largo del eje principal (main axis)?",
+        options: ["align-items", "justify-content", "align-content", "flex-direction"],
+        answer: 1,
+    },
+    {
+        question: "¿Qué propiedad alinea los Ítems Flex a lo largo del eje transversal (cross axis)?",
+        options: ["justify-content", "align-self", "align-items", "text-align"],
         answer: 2,
+    },
+    {
+        question: "¿Qué selector de CSS tiene mayor especificidad?",
+        options: ["Etiqueta (p)", "Clase (.mi-clase)", "ID (#mi-id)", "Universal (*)"],
+        answer: 2,
+    },
+    {
+        question: "¿Qué propiedad de Flexbox permite que los elementos salten a una nueva línea si no caben?",
+        options: ["flex-wrap", "flex-flow", "flex-direction", "align-content"],
+        answer: 0,
+    },
+    {
+        question: "¿Cuál es el orden del Box Model desde adentro hacia afuera?",
+        options: ["Contenido, Padding, Borde, Margin", "Contenido, Margin, Borde, Padding", "Padding, Borde, Margin, Contenido", "Borde, Margin, Padding, Contenido"],
+        answer: 0,
+    },
+    {
+        question: "¿En qué parte del documento HTML se declaran habitualmente los enlaces a tipografías externas o archivos CSS?",
+        options: ["<body>", "<head>", "<footer>", "<main>"],
+        answer: 1,
     }
 ];
 

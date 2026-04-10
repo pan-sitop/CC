@@ -4,6 +4,7 @@ import FloatingBackground from './components/FloatingBackground';
 import IdleView from './components/IdleView';
 import PresentationView from './components/PresentationView';
 import QuizView from './components/QuizView';
+import TriviaContainer from './components/TriviaContainer';
 
 function App() {
   const [viewState, setViewState] = useState('idle'); // idle | presentation | quiz
@@ -19,6 +20,7 @@ function App() {
               key="idle"
               onProceed={() => setViewState('presentation')}
               onGoToQuiz={() => setViewState('quiz')}
+              onGoToTrivia={() => setViewState('trivia')}
               onGoToRedes={() => setViewState('redes')}
             />
           )}
@@ -30,6 +32,9 @@ function App() {
           )}
           {viewState === 'redes' && (
             <QuizView key="redes" initialFinished={true} onReturnToStart={() => setViewState('idle')} />
+          )}
+          {viewState === 'trivia' && (
+            <TriviaContainer key="trivia" onReturnToStart={() => setViewState('idle')} />
           )}
         </AnimatePresence>
       </div>
