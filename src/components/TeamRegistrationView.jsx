@@ -56,7 +56,7 @@ export default function TeamRegistrationView({ onStart }) {
                 
                 {/* Formulario */}
                 <div className="w-full md:w-1/3 bg-white p-6 rounded-[2rem] shadow-xl border-4 border-verde-limon h-fit">
-                    <h2 className="font-ryker text-2xl text-azul-gatuno mb-6 uppercase tracking-wider text-center">Nuevo Equipo</h2>
+                    <div className="font-geomanist font-bold text-2xl text-azul-gatuno mb-6 text-center">Nuevo Equipo</div>
                     <form onSubmit={handleAddTeam} className="flex flex-col gap-4">
                         <div>
                             <label className="font-camingo font-bold text-azul-gatuno block mb-2">Nombre del Equipo</label>

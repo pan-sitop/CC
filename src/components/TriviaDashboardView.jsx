@@ -15,6 +15,11 @@ export default function TriviaDashboardView({ teams: initialTeams, onGameEnd, is
     const [isRobRound, setIsRobRound] = useState(false);
     const [showRobModal, setShowRobModal] = useState(false);
 
+    // Add team states
+    const [showAddTeamModal, setShowAddTeamModal] = useState(false);
+    const [newTeamName, setNewTeamName] = useState('');
+    const [newTeamMembers, setNewTeamMembers] = useState('');
+
     useEffect(() => {
         // Evaluate if it's a rob round (e.g. every 5 questions: index 4, 9, 14...)
         if (!isTiebreaker && (currentQuestionIndex + 1) % 5 === 0 && currentQuestionIndex !== 0) {
@@ -168,13 +173,77 @@ export default function TriviaDashboardView({ teams: initialTeams, onGameEnd, is
                 )}
             </AnimatePresence>
 
+            {/* Modal para Agregar Equipo */}
+            <AnimatePresence>
+                {showAddTeamModal && (
+                    <motion.div 
+                        className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                    >
+                        <motion.div 
+                            className="bg-white border-4 border-verde-limon p-8 rounded-3xl text-center shadow-2xl max-w-md w-full mx-4"
+                            initial={{ scale: 0.9, y: 50 }} animate={{ scale: 1, y: 0 }}
+                        >
+                            <div className="text-azul-gatuno font-geomanist font-bold text-2xl mb-4 text-center">Agregar Nuevo Equipo</div>
+                            <input 
+                                type="text"
+                                value={newTeamName}
+                                onChange={(e) => setNewTeamName(e.target.value)}
+                                placeholder="Nombre del Equipo"
+                                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-verde-limon focus:outline-none font-ryker text-xl mb-4 text-azul-gatuno"
+                                autoFocus
+                            />
+                            <textarea 
+                                value={newTeamMembers}
+                                onChange={(e) => setNewTeamMembers(e.target.value)}
+                                placeholder="Participantes (separados por comas)"
+                                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-verde-limon focus:outline-none font-ryker text-lg mb-6 text-azul-gatuno resize-none h-24"
+                            />
+                            <div className="flex justify-center gap-4">
+                                <button 
+                                    onClick={() => setShowAddTeamModal(false)}
+                                    className="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-ryker font-bold uppercase hover:bg-gray-300 transition-colors"
+                                >
+                                    Cancelar
+                                </button>
+                                <button 
+                                    onClick={() => {
+                                        if (!newTeamName.trim() || !newTeamMembers.trim()) return;
+                                        
+                                        const validAvatars = ['Layer_1.png', 'Layer_1-1.png', 'Layer_1-2.png', 'Layer_1-3.png', 'Layer_1-4.png'];
+                                        const randomAvatar = `/imgs/${validAvatars[Math.floor(Math.random() * validAvatars.length)]}`;
+
+                                        const newTeam = {
+                                            id: `team-${Date.now()}`,
+                                            name: newTeamName.trim(),
+                                            members: newTeamMembers.split(',').map(m => m.trim()).filter(m => m),
+                                            avatar: randomAvatar,
+                                            lives: 3,
+                                            points: 0,
+                                            isEliminated: false
+                                        };
+                                        setTeams([...teams, newTeam]);
+                                        setNewTeamName('');
+                                        setNewTeamMembers('');
+                                        setShowAddTeamModal(false);
+                                    }}
+                                    className="px-6 py-2 bg-verde-limon text-azul-gatuno rounded-full font-ryker font-bold uppercase hover:scale-105 transition-transform"
+                                >
+                                    Agregar
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Header info */}
-            <div className="w-full h-16 bg-white shadow-sm flex items-center justify-between px-8 shrink-0 z-10 border-b border-gray-200">
-                <div className="font-ryker font-black text-2xl text-azul-gatuno">
+            <div className="w-full h-16 bg-white shadow-sm flex items-center justify-center px-8 shrink-0 z-10 border-b border-gray-200 relative">
+                <div className="font-ryker font-black text-2xl text-azul-gatuno text-center">
                     {isTiebreaker ? '🔥 MUERTE SÚBITA 🔥' : `Ronda ${currentQuestionIndex + 1} / ${TRIVIA_QUESTIONS.length}`}
                 </div>
                 {isRobRound && (
-                    <div className="bg-verde-limon text-azul-gatuno px-4 py-1 rounded-full font-bold uppercase tracking-widest animate-pulse border-2 border-azul-gatuno">
+                    <div className="absolute right-8 bg-verde-limon text-azul-gatuno px-4 py-1 rounded-full font-bold uppercase tracking-widest animate-pulse border-2 border-azul-gatuno">
                         Ronda de Robo Activa
                     </div>
                 )}
@@ -185,9 +254,9 @@ export default function TriviaDashboardView({ teams: initialTeams, onGameEnd, is
                 {/* Panel Central: Pregunta */}
                 <div className="flex-[2] h-full flex flex-col items-center justify-center p-6 md:p-12 overflow-y-auto custom-scrollbar relative border-r-2 border-gray-200 bg-white/50">
                     <div className="max-w-4xl w-full bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 flex flex-col">
-                        <h2 className="font-ryker text-azul-gatuno text-3xl md:text-4xl uppercase mb-8 leading-tight">
+                        <div className="font-geomanist font-bold text-azul-gatuno text-3xl md:text-4xl mb-8 leading-tight">
                             {renderQuestionText(questionData.question)}
-                        </h2>
+                        </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                             {questionData.options.map((opt, idx) => (
@@ -225,8 +294,17 @@ export default function TriviaDashboardView({ teams: initialTeams, onGameEnd, is
                 </div>
 
                 {/* Panel Lateral: Equipos */}
-                <div className="flex-1 h-full bg-white flex flex-col items-center pt-8 overflow-y-auto custom-scrollbar pb-32">
-                    <h3 className="font-ryker font-black text-2xl text-azul-gatuno uppercase mb-6 tracking-wide">Equipos Vivos</h3>
+                <div className="flex-1 h-full bg-white flex flex-col items-center pt-8 overflow-y-auto custom-scrollbar pb-32 relative">
+                    <div className="flex items-center justify-between w-full px-6 mb-6">
+                        <h3 className="font-ryker font-black text-2xl text-azul-gatuno uppercase tracking-wide">Equipos Vivos</h3>
+                        <button 
+                            onClick={() => setShowAddTeamModal(true)}
+                            className="bg-verde-limon text-azul-gatuno w-10 h-10 rounded-full flex items-center justify-center font-bold text-2xl shadow-md hover:scale-110 transition-transform"
+                            title="Agregar Equipo"
+                        >
+                            +
+                        </button>
+                    </div>
                     
                     <div className="w-full px-6 flex flex-col gap-4">
                         {activeTeams.map(team => {

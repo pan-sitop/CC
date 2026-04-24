@@ -1,13 +1,33 @@
 export const TRIVIA_QUESTIONS = [
   {
-      question: "¿Cuál de estos selectores CSS tiene la MAYOR especificidad absoluta?",
-      options: ["Dos IDs: #nav #logo", "Un estilo en línea (style='...')", "Una clase y cien etiquetas: .header p p ...", "La pseudo-clase :root"],
+      question: "En la segmentación semántica de HTML5, ¿qué etiqueta es la más adecuada para englobar el contenido principal y único de un documento?",
+      options: ["<section>", "<div>", "<main>", "<article>"],
+      answer: 2, 
+  },
+  {
+      question: "¿Qué etiqueta semántica se utiliza para representar un contenido independiente que podría ser distribuido por sí solo, como una noticia o un post de un blog?",
+      options: ["<section>", "<article>", "<aside>", "<header>"],
       answer: 1, 
   },
   {
-      question: "En el Box Model, si width es 100px, border es 5px, padding es 10px y margin es 20px (box-sizing: content-box), ¿cuánto espacio TOTAL ocupa horizontalmente el elemento en la pantalla?",
-      options: ["100px", "130px", "170px", "150px"],
-      answer: 2, 
+      question: "En formularios HTML, ¿qué atributo de la etiqueta `<input>` se usa para definir el tipo de dato que se va a introducir (texto, contraseña, email, etc.)?",
+      options: ["kind", "class", "type", "format"],
+      answer: 2,
+  },
+  {
+      question: "¿Qué etiqueta se utiliza para agrupar visualmente elementos relacionados dentro de un formulario y suele ir acompañada de `<legend>`?",
+      options: ["<group>", "<fieldset>", "<form-group>", "<section>"],
+      answer: 1,
+  },
+  {
+      question: "¿Qué atributo en HTML5 asegura que el usuario no pueda enviar el formulario si un campo está vacío?",
+      options: ["required", "mandatory", "validate", "important"],
+      answer: 0,
+  },
+  {
+      question: "¿Cuál es el valor por defecto de la propiedad 'position' en CSS, que hace que el elemento siga el flujo normal del documento?",
+      options: ["relative", "absolute", "static", "fixed"],
+      answer: 2,
   },
   {
       question: "¿Qué valor de 'position' elimina por completo al elemento del flujo normal del documento, posicionándolo relativo a su ancestro posicionado más cercano?",
@@ -15,50 +35,29 @@ export const TRIVIA_QUESTIONS = [
       answer: 1,
   },
   {
+      question: "¿Qué valor de 'position' permite que un elemento se desplace con el scroll hasta cierto punto y luego se quede 'pegado' en la pantalla?",
+      options: ["fixed", "absolute", "relative", "sticky"],
+      answer: 3,
+  },
+  {
+      question: "En el Box Model, si width es 100px, border es 5px, padding es 10px y margin es 20px (box-sizing: content-box), ¿cuánto espacio TOTAL ocupa horizontalmente el elemento en la pantalla?",
+      options: ["100px", "130px", "170px", "150px"],
+      answer: 2, 
+  },
+  {
       question: "Para que un contenedor Flex alinee sus elementos a los extremos (uno al inicio, otro al final) de su eje principal, usamos:",
       options: ["justify-content: space-around;", "align-items: flex-end;", "justify-content: space-between;", "align-content: stretch;"],
       answer: 2,
   },
-  {
-      question: "¿Cuál de las siguientes etiquetas HMTL NO tiene valor semántico por sí sola?",
-      options: ["<article>", "<main>", "<span>", "<figure>"],
-      answer: 2,
-  },
-  {
-      question: "En CSS, ¿qué unidad relativa se basa directamente en el tamaño de fuente del elemento raíz (<html>)?",
-      options: ["em", "rem", "vh", "%"],
-      answer: 1,
-  },
-  {
-      question: "Si queremos diseñar pensando primero en celulares ('Mobile First'), ¿qué tipo de Media Query usamos usualmente?",
-      options: ["@media (max-width: 768px)", "@media (min-width: 768px)", "@media screen and (print)", "@import url()"],
-      answer: 1,
-  },
-  {
-      question: "En Flexbox, ¿qué propiedad permite cambiar el orden visual de un ítem sin cambiar el HTML?",
-      options: ["z-index", "flex-direction", "order", "flex-grow"],
-      answer: 2,
-  },
-  {
-      question: "¿Cuál es el comportamiento por defecto de la propiedad 'flex-wrap' en un contenedor flex?",
-      options: ["wrap", "nowrap", "wrap-reverse", "auto"],
-      answer: 1,
-  },
-  {
-      question: "¿Qué propiedad en CSS Grid se usa para construir explícitamente el layout nombrando áreas específicas de la cuadrícula?",
-      options: ["grid-template-areas", "grid-area-names", "grid-template-columns", "grid-auto-flow"],
-      answer: 0,
-  },
-  // Bloques de código
   {
       question: "Lee el siguiente fragmento HTML:\n```html\n<a href='https://google.com' target='_blank'>Ir a Google</a>\n```\n¿Qué hace el atributo target='_blank'?",
       options: ["Abre el link en modo incógnito", "Abre el link en una nueva pestaña o ventana", "Evita que la página actual cargue caché", "Descarga el contenido de la web"],
       answer: 1,
   },
   {
-      question: "¿Qué color tendrá el texto dentro del párrafo según este código CSS?\n```css\np { color: red; }\n#alerta { color: blue; }\np.texto-importante { color: green !important; }\n```\n```html\n<p id='alerta' class='texto-importante'>¡Cuidado!</p>\n```",
-      options: ["Rojo", "Verde", "Azul", "Negro (Default)"],
-      answer: 1,
+      question: "En Flexbox, ¿qué propiedad permite alinear los elementos en el eje transversal (cross axis) dentro de un contenedor de una sola línea?",
+      options: ["justify-content", "align-content", "align-items", "flex-wrap"],
+      answer: 2,
   },
   {
       question: "En el siguiente contenedor Flexbox, ¿qué ocurrirá con los elementos?\n```css\n.container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n```",
@@ -71,19 +70,19 @@ export const TRIVIA_QUESTIONS = [
       answer: 1,
   },
   {
-      question: "Si aplicamos este CSS a un contenedor, ¿qué efecto visual lograremos?\n```css\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n```",
-      options: ["Una sola columna con 3 filas iguales", "3 columnas de igual ancho con un espacio de 10px entre ellas", "3 columnas que ocupan cada una 10px de ancho", "Un diseño flexbox que salta de línea cada 10px"],
+      question: "¿Qué unidad CSS es recomendada para el tamaño de fuente porque respeta las preferencias del usuario configuradas en su navegador?",
+      options: ["px", "rem", "vh", "pt"],
       answer: 1,
   }
 ];
 
 export const TIEBREAKER_QUESTION = {
-    question: "PREGUNTA DE MUERTE SÚBITA (Desempate Final):\nEn CSS Grid, si usamos:\n```css\ngrid-template-columns: minmax(100px, 1fr) 2fr;\n```\n¿Qué le estamos diciendo al navegador sobre la primera columna?",
+    question: "PREGUNTA DE MUERTE SÚBITA (Desempate Final):\nEn Flexbox, ¿cuál es la principal diferencia entre `align-items` y `align-content`?",
     options: [
-        "Que ocupa mínimo 100px y siempre crecerá igual que la segunda",
-        "Que ocupa exactamente 100px estáticos y la otra el resto",
-        "Que nunca será más pequeña que 100px, pero si hay espacio extra crecerá ocupando la mitad (1fr) de lo que crezca la segunda (2fr)",
-        "Que ocupará el 100% del espacio, reemplazando a '1fr'"
+        "`align-items` alinea elementos en el eje principal, `align-content` en el transversal.",
+        "`align-items` afecta a los elementos en su línea actual, mientras que `align-content` distribuye el espacio libre entre múltiples líneas cuando hay `flex-wrap: wrap`.",
+        "Son exactamente lo mismo, solo es una sintaxis distinta introducida en HTML5.",
+        "`align-content` solo funciona si el `flex-direction` es `column`."
     ],
-    answer: 2, 
+    answer: 1, 
 };
